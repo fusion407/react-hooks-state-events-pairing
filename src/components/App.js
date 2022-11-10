@@ -1,18 +1,36 @@
-import video from "../data/video.js";
+import react, { useState } from "react"
+import data from "../data/video.js";
+import CommentBox from "../components/CommentBox";
+import VideoPlayer from "../components/VideoPlayer";
 
 function App() {
-  console.log("Here's your data:", video);
+  console.log("Here's your data:", data);
+  let [isCommentHidden, setCommentHidden] = useState(false);
 
+  // 2 props will be rendered:
+  //  1) VideoPlayer
+  //    Derivatives:
+  //    - Video : returns the actual video player
+  //    - VideoDetails : returns data.views and data.createdAt
+  //    - VoteButtons : handles video upvotes/downvotes
+  //    - HideComment : if true, commentbox will be hidden
+
+  //  2) CommentBox
+  //    Derivatives:
+  //    - Comment : returns data.user and data.comment
+  function handleHideComment () {
+    if(!isCommentHidden) {
+        setCommentHidden(true);
+    } else {
+        setCommentHidden(false);
+    }
+}
   return (
     <div className="App">
-      <iframe
-        width="919"
-        height="525"
-        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-        frameBorder="0"
-        allowFullScreen
-        title="Thinking in React"
-      />
+        <VideoPlayer makeHide={handleHideComment}/>
+        <CommentBox 
+          isHidden={isCommentHidden}
+        />
     </div>
   );
 }

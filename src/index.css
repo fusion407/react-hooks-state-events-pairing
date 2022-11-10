@@ -6,7 +6,25 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.voteButton {
+  align-content: center;
+  
+
+}
+.hideComments {
+  align-content: center;
+  margin-top: 20px;
+}
+.videoPlayer {
+  margin-top: 15px;
+  border-radius: 0.5px;
+  border-bottom-style: solid;
+  border-top-style: solid;
+  border-bottom-color: black;
+  padding-bottom: 10px;
+}
 
 .App {
   text-align: center;
+  background-color: #EBEBEB;
 }
